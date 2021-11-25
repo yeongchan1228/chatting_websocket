@@ -37,6 +37,9 @@
     /* <![CDATA[*/
     var roomId = /*[[${room.roomId}]]*/;
     /* ]]> */
+
+
+
     document.getElementById("name").addEventListener("click",function(){
         nickname = document.getElementById("nickname").value;
         document.getElementById("nickname").style.display = "none";
@@ -47,11 +50,12 @@
         send();
     })
     document.getElementById("disconnect").addEventListener("click", function (){
-        console.log("실행됨.")
         disconnect();
     })
     function connect(){
+        console.log("1");
         webSocket = new WebSocket("ws://localhost:8080/chat");
+        console.log("2");
         webSocket.onopen = onOpen;
         webSocket.onclose = onClose;
         webSocket.onmessage = onMessage;
